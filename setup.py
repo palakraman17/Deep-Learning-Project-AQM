@@ -1,6 +1,6 @@
 #nsml: nsml/pytorch:0.3.0-cuda8cudnn6-konlpy0.4-py3.6
 
-from distutils.core import setup
+from setuptools import setup
 
 setup(
     name='AQM',
