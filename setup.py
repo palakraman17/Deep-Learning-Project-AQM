@@ -3,7 +3,7 @@
 try:
  from setuptools import setup, install_requires
 except ImportError:
- from disutils.core import setup, install_requires
+ from distutils.core import setup, install_requires
 setup(
     name='AQM',
     version='1.0',
