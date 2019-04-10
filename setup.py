@@ -1,9 +1,9 @@
 #nsml: nsml/pytorch:0.3.0-cuda8cudnn6-konlpy0.4-py3.6
 
 try:
- from setuptools import setup, install_requires
+ from setuptools import setup
 except ImportError:
- from distutils.core import setup, install_requires
+ from distutils.core import setup
 setup(
     name='AQM',
     version='1.0',
