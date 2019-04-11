@@ -8,3 +8,4 @@ sklearn
 visdom
 nltk
 flask
+read_data_sets
