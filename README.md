@@ -10,35 +10,19 @@ Answerer in Questioner’s Mind (AQM) [[Lee et al., 2018](https://arxiv.org/abs/
 
 To address this, we propose AQM+ that can deal with a large-scale problem and ask a question that is more coherent to the current context of the dialog. We evaluate our method on GuessWhich, a challenging task-oriented visual dialog problem, where the number of candidate classes is near 10K.
 
-Our experimental results and ablation studies show that AQM+ outperforms the state-of-the-art models by a remarkable margin with a reasonable approximation. In particular, the proposed AQM+ reduces more than 60% of error as the dialog proceeds, while the comparative algorithms diminish the error by less than 6%. Based on our results, we argue that AQM+ is a general task-oriented dialog algorithm that can be applied for non-yes-or-no responses.
-
-This code is based on the [PyTorch implementation](https://github.com/batra-mlp-lab/visdial-rl) of _Learning Cooperative Visual Dialog Agents using Deep Reinforcement Learning_ [[Das & Kottur et al., 2017](https://arxiv.org/abs/1703.06585)].
-
-On top of the code for training the **questioner** and **answerer** bots described in [Das & Kottur et al., 2017], in **supervised** fashion and via **deep reinforcement learning** on the Visdial 0.5 dataset for the cooperative visual dialog task of _GuessWhich_, this repository contains code for training answerer bot in **depA** fashion of AQM+ and evaluating **AQM+ questioner**.  
-
-![models](images/iclr19-task-c.png)
-
-
-
 ## Preliminary: Important Terms
 
 There are several important terms which are repeatedly used in the AQM+ paper. Those terms are also important in order to understand this guide. Although it should not be difficult to follow the guide if you have read the paper, here provided is a brief explanation for some of the important terms.
-
-
 
 - Non-delta / Delta: Terms for different hyperparameter settings (See 4.1 of AQM+ paper)
   - Non-delta: A hyperparameter setting that [Das & Kottur et al., 2017] used in their paper.
   - Delta: A hyperparameter setting that [Das & Kottur et al., 2017] found and reported in their github repository, which makes much progress on their algorithm. It sets CELossCoeff to 1 and lrDecayRate to 0.999962372474343 during training.
   - There is no difference between the two settings in terms of interpretability. Delta setting is just a configuration of hyperparameters where the difference with non-delta setting is that it uses a different weight on one of the loss functions (the model of Das & Kottur et al. (2017b) optimizes the weighted sum of different loss functions) and a different value for learning rate decay. 
-- indA / depA / trueA: Terms for different learning strategies of AQM framework. (See 3.4 of AQM+ paper)
+- indA / depA : Terms for different learning strategies of AQM framework. 
   - indA
     - aprxAgen is trained from the training data.
   - depA
     - aprxAgen is trained from the questions in the training data and following answers obtained in the conversation between Qbot and Abot.
-  - trueA
-    - aprxAgen is the same as Agen, i.e. they share the same parameters.
-
-
 
 ## Data & Pretrained Checkpoints
 
@@ -126,12 +110,6 @@ As we extended the code of [Das & Kottur et al., 2017], our code is implemented 
 
 AQM+ basically uses the same training schemes as suggested in [Das & Kottur et al., 2017], except for the training of aprxAgen of AQM+ for depA setting. Therefore, for our experiments, we mainly used the pretrained models [Das & Kottur et al., 2017] provided, and additionally trained Abot for indA (with only the difference of random seed) and Abot for depA. All the necessary checkpoints can be downloaded from [here](https://drive.google.com/file/d/1_rIX3mNbrLhP-xLWUAEWM1pY37apswsq/view?usp=sharing), as explained above. However, if you want to train your own models, here is a brief guide.
 
-
-
-Random seed can be set using `-randomSeed <seed>`.
-
-
-
 Checkpoints for Qbot obtained by training can be used as either Qbot or Qgen of AQM+ Qbot. They are stored inside `checkpoints/`.
 
 - Training Qbot
@@ -161,33 +139,13 @@ Checkpoints for Abot obtained by training can be used as either Abot or aprxAgen
 
 
 
-### Example
+### Training
 
 To train a non-delta Abot, run command `python train.py -useGPU -trainMode sl-abot -numEpochs 60`.
-
-Preparation logs will be printed like this:
-
-![train-1](images/train-1.png)
-
-
-
-and then training logs will be printed.
-
-![train-2](images/train-2.png)
-
-
-
-Checkpoints will be saved at every epoch, under `checkpoints/<trainingStartedTime>/`.
-
-![train-3](images/train-3.png)
-
-
 
 ## Evaluation
 
 Here provided are the commands to evaluate models of AQM+ or [Das & Kottur et al., 2017] as in AQM+ paper. We first give a list of commands to run the models and then describe specific options in more detail.
-
-
 
 ### List of Basic Commands
 
