@@ -225,16 +225,12 @@ Here provided are the commands to evaluate models of AQM+ or [Das & Kottur et al
       - depA
         -  `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMBotRank -startFrom abot_sl_ep15_delta.vd -qstartFrom qbot_sl_ep15_delta.vd -aqmstartFrom aqmbot_depon_delta.vd` 
 
-      - trueA
-        -  `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMBotRank -startFrom abot_sl_ep15_delta.vd -aqmQStartFrom qbot_sl_ep15_delta.vd -aqmAStartFrom abot_sl_ep15_delta.vd`
-
     - Non-delta
       - indA
         - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMBotRank -startFrom abot_trained_60.vd -aqmQStartFrom qbot_sl_ep60.vd -aqmAStartFrom abot_sl_ep60.vd` 
       - depA
         - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMBotRank -startFrom abot_trained_60.vd -qstartFrom qbot_sl_ep60.vd -aqmstartFrom aqmbot_depon_trained_ep60.vd` 
-      - trueA
-        - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMBotRank -startFrom abot_trained_60.vd -aqmQStartFrom qbot_sl_ep60.vd -aqmAStartFrom abot_sl_ep60.vd`
+      
     - [Das & Kottur et al., 2017]
       - Delta
         - SL-Q
@@ -255,15 +251,13 @@ Here provided are the commands to evaluate models of AQM+ or [Das & Kottur et al
         - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMdialog -startFrom abot_sl_ep15_delta.vd -aqmQStartFrom qbot_sl_ep15_delta.vd -aqmAStartFrom abot_trained_delta.vd` 
       - depA
         - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMdialog -startFrom abot_sl_ep15_delta.vd -qstartFrom qbot_sl_ep15_delta.vd -aqmstartFrom aqmbot_depon_delta.vd` 
-      - trueA
-        - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMdialog -startFrom abot_sl_ep15_delta.vd -aqmQStartFrom qbot_sl_ep15_delta.vd -aqmAStartFrom abot_sl_ep15_delta.vd`
+     
     - Non-delta
       - indA
         - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMdialog -startFrom abot_trained_60.vd -aqmQStartFrom qbot_sl_ep60.vd -aqmAStartFrom abot_sl_ep60.vd` 
       - depA
         - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMdialog -startFrom abot_trained_60.vd -qstartFrom qbot_sl_ep60.vd -aqmstartFrom aqmbot_depon_trained_ep60.vd` 
-      - trueA
-        - `python evaluate.py -useGPU -expLowerLimit <lowerLimit> -expUpperLimit <upperLimit> -evalMode AQMdialog -startFrom abot_trained_60.vd -aqmQStartFrom qbot_sl_ep60.vd -aqmAStartFrom abot_sl_ep60.vd`
+     
   - [Das & Kottur et al., 2017]
     - Delta
       - SL-Q
@@ -291,41 +285,6 @@ Here provided are the commands to evaluate models of AQM+ or [Das & Kottur et al
 - Choose evaluation mode by setting `-evalMode <evalMode>`. Evaluation modes are listed below.
 - Since AQM+ takes quite some inference time, it is recommended to run evaluations on parts of the whole dataset, by setting the lower limit and upper limit of test set images using `-expLowerLimit <lowerLimit>`  and `-expUpperLimit <upperLimit>`. Test set images inside the range `[lowerLimit, upperLimit)` are used. Limits can be a subrange of `[0, 9628)`. (There are 9628 images in the test set.)
 
-
-
-#### Evaluation Modes
-
-- PMR of SL or RL (Abot and Qbot of [Das & Kottur et al., 2017])
-  - `-evalMode QABotsRank`
-- PMR of AQM+
-  - `-evalMode AQMBotRank`
-
-- Dialog visualization of SL or RL (Abot and Qbot of [Das & Kottur et al., 2017])
-  - `-evalMode dialog -beamSize 5`
-    - [Das & Kottur et al., 2017] uses beam size of 5 as default.
-- Dialog visualization of AQM+
-  - `-evalMode AQMdialog`
-
-
-
-#### Options for data location
-
-`resources/` is used as the root data directory if no option is given and the directory exists.
-
-If you want, it is okay to change the directory name to `data/`. The program will still run fine without the need of additional options.
-
-If you want to change the root data directory to something other than `resources/` or `data/`, use `-dataRoot <directory>`.
-
-
-
-##### For NSML users (in NAVER Corp.)
-
-`run nsml -d <dataset> -e evaluate.py -a "<options>"` would automatically set the paths of data and checkpoints to those inside `<dataset>`. No additional options are necessary.
-
-Use `aqm_all` as dataset if you don't want to upload your own.
-
-
-
 #### Checkpoint options for AQM+
 
 - Delta
@@ -345,140 +304,6 @@ Use `aqm_all` as dataset if you don't want to upload your own.
       `-qstartFrom qbot_sl_ep15_delta.vd`
 
       `-aqmstartFrom aqmbot_depon_delta.vd`
-
-  - trueA
-
-    - `-startFrom abot_sl_ep15_delta.vd`
-
-      `-aqmQStartFrom qbot_sl_ep15_delta.vd`
-
-      `-aqmAStartFrom abot_sl_ep15_delta.vd`
-
-- Non-delta
-
-  - indA
-
-    - `-startFrom abot_trained_60.vd`
-
-      `-aqmQStartFrom qbot_sl_ep60.vd`
-
-      `-aqmAStartFrom abot_sl_ep60.vd`
-
-  - depA
-
-    - `-startFrom abot_trained_60.vd`
-
-      `-qstartFrom qbot_sl_ep60.vd`
-
-      `-aqmstartFrom aqmbot_depon_trained_ep60.vd`
-
-  - trueA
-
-    - `-startFrom abot_trained_60.vd`
-
-      `-aqmQStartFrom qbot_sl_ep60.vd`
-
-      `-aqmAStartFrom abot_sl_ep60.vd`
-
-
-
-#### Options for Ablation Studies (4.3 & Appendix B)
-
-- Guesser (Figure 3)
-  - This does not calculate information gain; it uses beam search of beam size 1 to make the question.
-  - `-onlyGuesser 1`
-- No Caption (Figure 4a, 8a)
-  - Zero Caption
-    - `-zeroCaption 1`
-  - Random Caption
-    - `-randomCaption 1`
-- Random Candidate Answer (Figure 4b)
-  - `-randA 1 -resampleEveryDialog 1`
-- Number of Q (Figure 5b)
-  - `-numQ <numberOfQuestions>`
-- Number of A (Figure 5c)
-  - `-numA <numberOfAnswers>`
-- number of C (Figure 5d)
-  - `-numImg <numberOfImages>`
-- AQM+'s Qinfo + SL's Qscore (Figure 9)
-  - `-slGuesser 1`
-- gen1Q (Figure 10)
-  - `-gen1Q <numberOfQuestions>`
-- randQ (Figure 11)
-  - `-randQ 1 -resampleEveryDialog 1`
-- No History (Figure 12)
-  - `-noHistory 1`
-
-
-
-#### Other Options
-
-By default, the program shows the conversation between Qbot and Abot while calculating the PMR. To disable this, set `-showQA 0`.
-
-To save logs for analysis, e.g. image-wise and turn-wise rank/qa pair/image url, set `-saveLogs 1`.
-
-
-
-### Example
-
-#### PMR
-
-To evaluate the PMR of delta indA model of test set images from 0 to 9, run command `python evaluate.py -useGPU -expLowerLimit 0 -expUpperLimit 10 -evalMode AQMBotRank -startFrom abot_sl_ep15_delta.vd -aqmQStartFrom qbot_sl_ep15_delta.vd -aqmAStartFrom abot_trained_delta.vd` .
-
-
-
-Preparation logs will be printed like this:
-
-![PMR-1](images/PMR-1.png)
-
-
-
-evaluation logs will be printed like this:
-
-![PMR-2](images/PMR-2.png)
-
-
-
-After the evaluation, PMR will be printed.
-
-![PMR-3](images/PMR-3.png)
-
-
-
-#### Dialog
-
-To evaluate the PMR of delta indA model of test set images from 0 to 9, run command `python evaluate.py -useGPU -expLowerLimit 0 -expUpperLimit 10 -evalMode AQMBotRank -startFrom abot_sl_ep15_delta.vd -aqmQStartFrom qbot_sl_ep15_delta.vd -aqmAStartFrom abot_trained_delta.vd`
-
-
-
-Preparation logs will be printed like this:
-
-![dialog-1](images/dialog-1.png)
-
-
-
-and then the evaluation logs will be printed.
-
-![dialog-2](images/dialog-2.png)
-
-
-
-When the evaluation is done, the dump result will be saved in `dialog_output/results/` as `results.json`.
-
-![dialog-3](images/dialog-3.png)
-
-
-
-To see the dumped dialogs, move into `dialog_output/` and run `python -m http.server <port>`.
-
-![dialog-4](images/dialog-4.png)
-
-
-
-Then access `<server_ip>:<port>` on your web browser.
-
-![dialog-5](images/dialog-5.png)
-
 
 
 #### PMR of [Das & Kottur et al., 2017]
@@ -502,6 +327,8 @@ If you use this code as part of any published research, please cite **_[S.-W. Le
 ## Acknowlegement
 
 This code is based on the github repository
+_[PyTorch code for Large-Scale Answerer in Questioner's Mind for Visual Dialog Question Generation (AQM+)]. 
+(https://github.com/naver/aqm-plus)_
 
 _[N. Modhe, V. Prrabhu, M. Cogswell, S. Kottur, A. Das, S. Lee, D. Parikh, and D. Batra, VisDial-RL-PyTorch, 2018](https://github.com/batra-mlp-lab/visdial-rl.git)_
 
@@ -510,23 +337,3 @@ which is the official PyTorch implementation of
 _[A. Das, S. Kottur, J. Moura, S. Lee, and D. Batra, Learning Cooperative Visual Dialog Agents with Deep Reinforcement Learning, 2017](https://arxiv.org/abs/1703.06585)_.
 
 We would like to thank the authors of the work.
-
-
-
-## Code Authors
-
-- Sohee Yang [github](https://github.com/soheeyang)
-- Tong Gao [github](https://github.com/gaotongxiao)
-
-
-## License
-
-Copyright (c) NAVER Corp.
-Licensed under [BSD 3-clause](LICENSE.md)
-
-
-## Help / Issues
-
-For help or issues regarding the code, please submit a github issue.
-
-Reading the readme of [VisDial-RL-PyTorch](https://github.com/batra-mlp-lab/visdial-rl) would help as well.
