@@ -42,30 +42,7 @@ There are several important terms which are repeatedly used in the AQM+ paper. T
 
 ## Data & Pretrained Checkpoints
 
-We provide pretrained checkpoints for models from [Das & Kottur et al., 2017] and AQM+. All necessary checkpoints and data can be downloaded from [here](https://drive.google.com/file/d/1_rIX3mNbrLhP-xLWUAEWM1pY37apswsq/view?usp=sharing). Unzip `resources.zip` and put it under the root directory of this repository.
-
-
-
-```
-aqm-plus
-|-- dialog_output
-|-- eval_utils
-|-- images
-|-- resources
-    |-- checkpoints
-        |-- abot_rl_ep10.vd
-        |-- ...
-    |-- data
-        |-- visdial
-            |-- chat_processed_data.h5
-            |-- ...
-|-- scripts
-|-- utils
-|-- visdial
-...
-```
-
-
+We use provided pretrained checkpoints for models from [Das & Kottur et al., 2017] and AQM+. All necessary checkpoints and data can be downloaded from [here](https://drive.google.com/file/d/1_rIX3mNbrLhP-xLWUAEWM1pY37apswsq/view?usp=sharing). Unzip `resources.zip` and put it under the root directory of this repository.
 
 - Pretrained Checkpoints (inside `resources/checkpoints/`)
   - AQM+
@@ -317,17 +294,10 @@ After the evaluation, the PMR of test set images [0:10) will be printed like thi
 ![SL-PMR-1](images/SL-PMR-1.png)
 
 
-
-## References
-
-If you use this code as part of any published research, please cite **_[S.-W. Lee, T. Gao, S. Yang, J. Yoo, and J.-W. Ha, Large-Scale Answerer in Questioner's Mind for Visual Dialog Question Generation, 2019](https://openreview.net/forum?id=rkgT3jRct7&noteId=rkepgP_ggN)_**.
-
-
-
 ## Acknowlegement
 
 This code is based on the github repository
-_[PyTorch code for Large-Scale Answerer in Questioner's Mind for Visual Dialog Question Generation (AQM+)]. 
+_[PyTorch code for Large-Scale Answerer in Questioner's Mind for Visual Dialog Question Generation (AQM+)]
 (https://github.com/naver/aqm-plus)_
 
 _[N. Modhe, V. Prrabhu, M. Cogswell, S. Kottur, A. Das, S. Lee, D. Parikh, and D. Batra, VisDial-RL-PyTorch, 2018](https://github.com/batra-mlp-lab/visdial-rl.git)_
