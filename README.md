@@ -20,9 +20,7 @@ S → Qscore
 
 We divide our project into two phases. In phase 1, the Abot of the AQM+ framework is trained using the indA approach. In phase 2, the Abot of the AQM framework is trained after hyperparameter tuning. Performance Metrics: PMR (Percentile Mean Rank) and VQA (Visual Question Answering). Training: epochs = 60, No. of iterations = 25 in each epoch for both phases.
 
-# Results: Delta vs Non-Delta
-# Results: PMR
-# Results: VQA
+# Results are specified in our models section
 
 # Conclusion
 The project has reached close to the benchmark that was set, while adding support for improvements using the pretrained models. Significant improvement in PMR upon scaling cross entropy loss.
