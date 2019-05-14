@@ -1,5 +1,7 @@
-# This is the code repository for the project "Goal-Oriented Visual Dialog using Deep Learning". This project was implemented as part of the course CS-GY 9223: Deep Learning at New York University, Tandon School of Engineering under Professor Iddo Drori. 
-# Collaborators - Palak Raman Patel, Serena Lekhrajani, Shalaka Sane. 
+# "Goal-Oriented Visual Dialog using Deep Learning". 
+
+This is the code repository for the project "Goal-Oriented Visual Dialog using Deep Learning". This project was implemented as part of the course CS-GY 9223: Deep Learning at New York University, Tandon School of Engineering under Professor Iddo Drori in Spring 2019. 
+Collaborators - Shalaka Sane, Palak Raman Patel, Serena Lekhrajani. 
 
 # Introduction 
 Goal-oriented dialog is the result of a single-exchange interaction between two bots. The Qbot asks questions to the Abot about a scenario that is presented to it, and the Abot answers the questions by indicating to the Qbot which action to take of all the given options. Answerer in Questioner’s Mind (AQM) is an information-theoretic framework that has been proposed for task-oriented dialog systems. 
